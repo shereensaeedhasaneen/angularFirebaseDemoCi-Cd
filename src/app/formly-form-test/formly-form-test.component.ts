@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+//import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-formly-form-test',
@@ -10,7 +10,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 export class FormlyFormTestComponent implements OnInit {
 
   form = new FormGroup({});
-  options:FormlyFormOptions={};
+  //options:FormlyFormOptions={};
   items!:[];
   token!:string;
 
@@ -18,7 +18,7 @@ export class FormlyFormTestComponent implements OnInit {
     firstname:'shereen',
     age:24
   }
-  fields:FormlyFieldConfig[]=[
+  /*fields:FormlyFieldConfig[]=[
     {
       fieldGroupClassName:'ff',
        fieldGroup:[
@@ -44,7 +44,7 @@ export class FormlyFormTestComponent implements OnInit {
        ]
     }
 
-  ]
+  ]*/
   onSubmit(){
     console.log(this.form.value)
   }
