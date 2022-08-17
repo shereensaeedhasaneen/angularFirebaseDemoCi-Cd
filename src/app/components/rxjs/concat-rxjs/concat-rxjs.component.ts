@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { concat, delay, of } from 'rxjs';
+import { concat, delay, of,tap } from 'rxjs';
 
 @Component({
   selector: 'app-concat-rxjs',
@@ -12,7 +12,8 @@ export class ConcatRxjsComponent implements OnInit {
 
   ngOnInit(): void {
     const observable1 = of('a' , 'b' ,'c').pipe(delay(3000));
-    const observable2 = of(1 , 2 ,3);
+    //const observable2 = of(1 , 2 ,3);
+    const observable2 = of(1 , 2 ,3).pipe(tap(()=>{throw new Error('error')}));
     const concatData = concat(observable1 , observable2);
     concatData.subscribe(
       val=>{console.log('value is = '+ val)}, // in success
