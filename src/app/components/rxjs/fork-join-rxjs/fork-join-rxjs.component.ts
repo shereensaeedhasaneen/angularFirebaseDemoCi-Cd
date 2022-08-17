@@ -17,7 +17,7 @@ export class ForkJoinRxjsComponent implements OnInit {
     // const observable2 = of(1 , 2 ,3,4).pipe(delay(3000));
     // const observable3 = of(1 , 2 ,3,4).pipe(delay(6000));
 
-    const observable2 = of(1 , 2 ,3,4).pipe(tap(()=>{throw new Error('error')}));
+    const observable2 = of(1 , 2 ,3,4).pipe(tap(()=>{throw new Error('error')}));//في حاله الايرور هيوقف كل حاجه ويجيب ايرور حتي لو الاobservable ال قبله كان مفيهوش ايرور
     const observable3 = of(1 , 2 ,3,4).pipe(delay(6000));
 
     const concatData = forkJoin(observable1 , observable2 , observable3);

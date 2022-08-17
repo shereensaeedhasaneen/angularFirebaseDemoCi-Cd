@@ -13,8 +13,9 @@ export class ConcatRxjsComponent implements OnInit {
   ngOnInit(): void {
     const observable1 = of('a' , 'b' ,'c').pipe(delay(3000));
     //const observable2 = of(1 , 2 ,3);
-    const observable2 = of(1 , 2 ,3).pipe(tap(()=>{throw new Error('error')}));
-    const concatData = concat(observable1 , observable2);
+    const observable2 = of(1 , 2 ,3).pipe(tap(()=>{throw new Error('error')})); // في حاله الايرور مش هيوقف كل حاجه هيوقف دا بس وال بعده لكن ال قبله لو مفيهوش ايرور مش هيقف عادي
+    const observable3 = of('a' , 'b' ,'c');
+    const concatData = concat(observable1 , observable2 ,observable3);
     concatData.subscribe(
       val=>{console.log('value is = '+ val)}, // in success
       err=>{console.log(err)}, // in Error
